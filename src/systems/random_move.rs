@@ -10,10 +10,14 @@ pub fn random_move(ecs: &SubWorld, commands: &mut CommandBuffer) {
     let mut positions = <(Entity, &Point, &Health)>::query();
     movers.iter(ecs).for_each(|(entity, pos, _)| {
         let mut rng = RandomNumberGenerator::new();
-        let destination = match rng.range(0, 4) {
+        let destination = match rng.range(0, 8) {
             0 => Point::new(-1, 0),
             1 => Point::new(1, 0),
             2 => Point::new(0, -1),
+            3 => Point::new(-1, -1),
+            4 => Point::new(1, -1),
+            5 => Point::new(-1, 1),
+            6 => Point::new(1, 1),
             _ => Point::new(0, 1),
         } + *pos;
         let mut attacked = false;

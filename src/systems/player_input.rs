@@ -16,6 +16,10 @@ pub fn player_input(
             VirtualKeyCode::Left => Point::new(-1, 0),
             VirtualKeyCode::Right => Point::new(1, 0),
             VirtualKeyCode::Up => Point::new(0, -1),
+            VirtualKeyCode::Home => Point::new(-1, -1),
+            VirtualKeyCode::PageUp => Point::new(1, -1),
+            VirtualKeyCode::End => Point::new(-1, 1),
+            VirtualKeyCode::PageDown => Point::new(1, 1),
             VirtualKeyCode::Down => Point::new(0, 1),
             _ => Point::new(0, 0),
         };
